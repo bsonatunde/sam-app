@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Create a Game</title>
+</head>
+
+<body>
+
+    <p>HOW MANY FINGER ARE MY HOLDING UP ?</p>
+    <P> <select id="mynumber">
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+    </select>
+
+        <button id="button">Guess!</button> </P>
+
+
+    <h3>What i love Doing</h3>
+    <div id="tweetsdiv"></div>
+
+
+
+    <script>
+        // creating game by Math.random function to get the number
+  /*    document.getElementById('button').onclick = function () {
+            var randomNumber = Math.random();
+            randomNumber = randomNumber * 6;
+            randomNumber = Math.floor(randomNumber);
+            if (document.getElementById('guess').value == randomNumber) {
+                alert('well done! You got it');
+            } else {
+                alert('Try Again' + randomNumber);
+
+            };
+        }; */
+      function  doAGuess(correctAnswer){ 
+        var guess = Math.random();
+            guess = guess*6;
+            guess = Math.floor(guess);
+        if(guess == correctAnswer) {
+            return(true);
+       
+
+        } else{
+             return(false);
+        }
+  }
+
+    document.getElementById('button').onclick = function () {
+            var myNumber = document.getElementById('mynumber').value;
+            var gotIt = false;
+            var numberOfGuesses = 1;
+        while (gotIt == false){
+        if(doAGuess(myNumber) == true) {
+            gotIt = true;
+            alert( 'Got it! it was a ' + myNumber + 'it took me' + numberOfGuesses + 'guesses' )
+
+        } else{
+            numberOfGuesses++;
+        }
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+        //Using Array and for loops
+        var tweetsText = '';
+        var tweets = ['Hi Everyone,', 'I Love eaten Egg,', 'Every Morning,', 'Hope you all Enjoy me.'];
+        for (let i = 0; i < tweets.length; i++) {
+            tweetsText = tweetsText + '<p>' + tweets[i] + '</p>';
+
+        }
+
+        document.getElementById('tweetsdiv').innerHTML = tweetsText;
+
+
+//while loops
+        var i = 0;
+        var tweets = ['Hi Everyone,', 'I Love eaten Egg,', 'Every Morning,', 'Hope you all Enjoy me.'];
+        while ( i < tweets.length) {
+            tweetsText = tweetsText + '<p>' + tweets[i] + '</p>'; i++;
+
+        }
+
+        document.getElementById('tweetsdiv').innerHTML = tweetsText;
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+
+
+</html>
